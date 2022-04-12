@@ -1,0 +1,24 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: database
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_DATABASE: 'catCrud'
+      MYSQL_USER: 'pahin'
+      MYSQL_PASSWORD: 'pass1234'
+      MYSQL_ROOT_PASSWORD: 'secret'
+    ports:
+      - 3306:3306
+    volumes:
+      - mydb:/var/lib/mysql
+    networks:
+      - cat-net
+
+  volumes:
+    mydb:
+      driver: local
+
+  networks:
+    cat-net:
+      name: cat-net
