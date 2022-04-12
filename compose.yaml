@@ -16,7 +16,7 @@ services:
       - cat-net
   nginx:
     build:
-      context: ./config
+      context: ./nginx-config
     container_name: server
     ports:
       - "60080:80"
