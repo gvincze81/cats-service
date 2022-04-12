@@ -5,20 +5,20 @@ var form = document.getElementById("cat-form")
 form.onsubmit = function(event) {
 	event.preventDefault()
 
-	// nameIn = document.getElementById("name").value
-	// fetch('http://localhost:8080/meow?name=' + nameIn).then(function (response) {
-	// 	// The API call was successful!
-	// 	return response.json();
-	// }).then(function (resp) {
-	// 	// This is the JSON from our response
-	// 	setContent(resp.data)
-	// 	displayCat(true)
-	// }).catch(function (err) {
-	// 	// There was an error
-	// 	setContent(null, err)
-	// 	displayCat(false)
-	// 	console.warn('Something went wrong.', err);
-	// });
+	nameIn = document.getElementById("name").value
+	fetch('http://localhost:8080/api/meow?name=' + nameIn).then(function (response) {
+		// The API call was successful!
+		return response.json();
+	}).then(function (resp) {
+		// This is the JSON from our response
+		setContent(resp.data)
+		displayCat(true)
+	}).catch(function (err) {
+		// There was an error
+		setContent(null, err)
+		displayCat(false)
+		console.warn('Something went wrong.', err);
+	});
 
 }
 
