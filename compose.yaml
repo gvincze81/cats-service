@@ -1,4 +1,19 @@
 services:
+  cat-app:
+    build:
+      context: .
+    container_name: cat-app
+    depends_on:
+      - db
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_HOST: ${MYSQL_HOST}
+      MYSQL_PORT: ${MYSQL_PORT}
+    networks:
+      - cat-net
   db:
     image: mysql:8.0
     container_name: database
